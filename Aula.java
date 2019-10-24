@@ -35,6 +35,7 @@ public class Aula
 
 
                 System.out.println (eq.toString());
+                System.out.println ("Resultado = " + eq.getResultado());
             }
 
         }
