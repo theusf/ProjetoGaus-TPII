@@ -43,6 +43,11 @@ public Double getIncog (double pos){
     
 }
 
+public int getQtdEq ()
+{
+	return this.qtd;
+}
+
   
 
 
