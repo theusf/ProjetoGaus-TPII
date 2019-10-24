@@ -20,7 +20,7 @@ public void addIncog(Double x) throws Exception {
 
 public Double getResultado (){
 
-    return new Double(this.valores[qtd-1]);
+    return this.valores[qtd-1];
 
 }
 
