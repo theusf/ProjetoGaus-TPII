@@ -1,4 +1,4 @@
-public class SistemaEq
+public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 {
 	Equacao vetEqs[];
 	int qtd = 0;
@@ -11,19 +11,19 @@ public class SistemaEq
 		vetEqs = new Equacao[tam];
 	}
 	
-	public void insereEqs (Equacao x)
+	public void insereEqs (Equacao x) throws Exception
 	{
 		if(x == null)
 		throw new Exception("Equação nula");
 		
-		if(qtd >= tam)
+		if(this.qtd >= this.vetEqs.length)
 		throw new Exception("Vetor Cheio!");
 		
-		verEqs[qtd] = x.;
-		qtd++;
+		vetEqs[qtd] = x;
+		this.qtd++;
 	}
 	
-	public int kd(Equacao x)
+	public int kd(Equacao x) throws Exception
 	{
 		if(x == null)
 		throw new Exception("Equação nula");
@@ -45,9 +45,7 @@ public class SistemaEq
 		{
 			ret += vetEqs[i] + "\n";	
 		}
+		return ret;
 	}
-	
-	public Ob
-	
 	
 }

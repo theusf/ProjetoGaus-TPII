@@ -1,4 +1,5 @@
-public class Equacao {
+public class Equacao 
+ {
 
     public Double valores[];
     public int qtd = 0;
@@ -37,7 +38,7 @@ public String toString(){
 
 }
 
-public Double getIncog (double pos){
+public Double getIncog (int pos){
     
     return new Double(this.valores[pos]);
     
@@ -61,7 +62,7 @@ public boolean equals(Object obj)
 	
 	Equacao eqObj = (Equacao) obj;
 	
-	if(this.qtd != eqObj)
+	if(this.qtd != eqObj.qtd)
 	return false; 
 
 	for(int i = 0; i < this.qtd; i++)			//qtd retorna a quantidade valores q equacao tem;     0 3 1 = 28 tem 4 valores
