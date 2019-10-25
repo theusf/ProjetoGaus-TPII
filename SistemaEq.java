@@ -1,9 +1,9 @@
-import sun.nio.cs.ext.EUC_CN;
+//import sun.nio.cs.ext.EUC_CN;
 
 public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 {
-	Equacao vetEqs[];
-	int qtd = 0;
+	private Equacao vetEqs[];
+	private int qtd = 0;
 	
 	public SistemaEq(int tam) throws Exception 
 	{
@@ -55,7 +55,7 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 		String total = "";
 		for (int row = 0; row < this.vetEqs.length; row++)
 		{
-			total += row +":"+ vetEqs[row].valores[row] + ", " ;
+			total += row +":"+ vetEqs[row].getIncog(row) + ", " ;
 		}
 
 
@@ -69,7 +69,7 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 
 		for (int row = 0; row < this.vetEqs.length; row++)
 		{
-			if  (vetEqs[row].valores[row] == 0)
+			if  (vetEqs[row].getIncog(row) == 0)
 				return true;
 		}
 
@@ -90,11 +90,20 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 				vetEqs[i] = vetEqs[i+1]; // vetEqs[0] = vetEqs[1] ... vetEqs[1] = vetEqs[2] 
 			}
 
-			vetEqs[2]= temp;
+			vetEqs[vetEqs.length-1] = temp;  //-1 porque o ultimo valor é sempre o resutlado da eq e eu não quero apagar meu resultado.........
 
 		}
 
     } 
-
+    
+    public Equacao getEqua(int pos)
+    {
+		
+		return this.vetEqs[pos];
+	}
 	
+	public void setEquacao(Equacao x, int pos)
+	{
+		this.vetEqs[pos] = x;
+	}
 }

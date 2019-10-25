@@ -1,15 +1,15 @@
 public class Equacao 
  {
 
-    public Double valores[];
-    public int qtd = 0;
+    private Double valores[];
+    private int qtd = 0;     //quantas coisas guardadas
 
 public Equacao(int tamanho) throws Exception{
 
     if (tamanho < 3)
     throw new Exception("Tamanho invalido");
 
-    this.valores = new Double[tamanho+1];
+    this.valores = new Double[tamanho + 1];  //incog + resultado
 
 }
 
@@ -44,10 +44,18 @@ public Double getIncog (int pos){
     
 }
 
+
 public int getQtdEq ()
 {
 	return this.qtd;
 }
+
+public void setIncog(double x, int pos)
+{
+	this.valores[pos] = x;
+}
+
+
 
 public boolean equals(Object obj)
 {

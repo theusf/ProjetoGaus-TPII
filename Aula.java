@@ -52,7 +52,10 @@ public class Aula
 
             System.out.println(Sistema.toString());
             System.out.println("Tem zero na diagonal? :" + Sistema.temZeroNaDiagonal());
-
+			
+			MetodoGaus testeFODASE = new MetodoGaus(Sistema);
+			testeFODASE.tornaPrimeiroElemUm();
+			System.out.println(Sistema.toString());
 
 
 
