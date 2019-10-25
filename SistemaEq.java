@@ -55,7 +55,7 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 		String total = "";
 		for (int row = 0; row < this.vetEqs.length; row++)
 		{
-			total += vetEqs[row].valores[row] + ", " ;
+			total += row +":"+ vetEqs[row].valores[row] + ", " ;
 		}
 
 
@@ -82,14 +82,15 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 
 		if (this.temZeroNaDiagonal())
 		{
+			
+			Equacao temp = this.vetEqs[0]; // 0
 
-			Equacao temp = this.vetEqs[vetEqs.length-1];
-			for(int i=vetEqs.length-1;i>0;i--)
-			{
-				vetEqs[i]=vetEqs[i-1];
+			for(int i=0;i<vetEqs.length-1;i++){ // i = 0 , enquanto i < 2 i++
+			
+				vetEqs[i] = vetEqs[i+1]; // vetEqs[0] = vetEqs[1] ... vetEqs[1] = vetEqs[2] 
 			}
 
-			vetEqs[0]= temp;
+			vetEqs[2]= temp;
 
 		}
 
