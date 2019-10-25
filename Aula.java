@@ -18,6 +18,7 @@ public class Aula
                            "gauss.txt"));
 
             int qtdEquacoes = Integer.parseInt (arquivo.readLine());
+            SistemaEq Sistema = new SistemaEq(qtdEquacoes);
 
             for (int i=0; i<qtdEquacoes; i++)
             {
@@ -26,7 +27,7 @@ public class Aula
                 StringTokenizer quebrador = new StringTokenizer (arquivo.readLine());
      
                 Equacao eq = new Equacao(qtdEquacoes);
-        
+
                 while (quebrador.hasMoreTokens())
                 {
      
@@ -36,7 +37,25 @@ public class Aula
 
                 System.out.println (eq.toString());
                 System.out.println ("Resultado = " + eq.getResultado());
+
+                Sistema.insereEqs(eq);
             }
+            System.out.println("Sistema:");
+
+            System.out.println(Sistema.toString());
+
+            System.out.println("Valores da diagonal:" + Sistema.getDiagonal());
+            System.out.println("Tem zero na diagonal? :" + Sistema.temZeroNaDiagonal());
+            Sistema.tiraZerosDiagonal();
+           
+            System.out.println("Sistema sem zero na diagonal:");
+
+            System.out.println(Sistema.toString());
+            System.out.println("Tem zero na diagonal? :" + Sistema.temZeroNaDiagonal());
+
+
+
+
 
         }
         catch (Exception erro)

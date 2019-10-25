@@ -1,3 +1,5 @@
+import sun.nio.cs.ext.EUC_CN;
+
 public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 {
 	Equacao vetEqs[];
@@ -37,7 +39,7 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 		return -1;	//inexistente.
 	}
 	
-	public String ToString()
+	public String toString()
 	{
 		String ret = "";
 		
@@ -47,5 +49,51 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 		}
 		return ret;
 	}
+
+	public String getDiagonal()
+	{
+		String total = "";
+		for (int row = 0; row < this.vetEqs.length; row++)
+		{
+			total += vetEqs[row].valores[row] + ", " ;
+		}
+
+
+		return total;
+
+	}
+
+
+	public boolean temZeroNaDiagonal()
+	{
+
+		for (int row = 0; row < this.vetEqs.length; row++)
+		{
+			if  (vetEqs[row].valores[row] == 0)
+				return true;
+		}
+
+		return false;
+
+	}
+
+	public void tiraZerosDiagonal()
+	{
+
+		if (this.temZeroNaDiagonal())
+		{
+
+			Equacao temp = this.vetEqs[vetEqs.length-1];
+			for(int i=vetEqs.length-1;i>0;i--)
+			{
+				vetEqs[i]=vetEqs[i-1];
+			}
+
+			vetEqs[0]= temp;
+
+		}
+
+    } 
+
 	
 }
