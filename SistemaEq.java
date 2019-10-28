@@ -19,6 +19,11 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 		if(this.qtd >= this.vetEqs.length)
 		throw new Exception("Vetor Cheio!");
 		
+		for(int i = 0; i < this.qtd; i++ )
+		{
+			if(this.get)
+		}
+		
 		vetEqs[qtd] = x;
 		this.qtd++;
 	}
@@ -46,6 +51,28 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 			ret += vetEqs[i] + "\n";	
 		}
 		return ret;
+	}
+	
+	public getEquacao()
+	{
+		for(int i = 0; i < this.vetEqs.lenght; i++)
+		{
+			
+		}
+	}
+	
+	private static boolean EhaMesma(Equacao x1, Equacao x2) throws Exception
+	{
+		if(x1.getQtdEq() != x2.getQtdEq())
+		throw new Exception("Equações com quantidade de INCOG diferentes!");
+		
+		for(int i = 0; i < x1.getQtdEq(); i++)
+		{
+			if((x1.getIncog(i) / x2.getIncog(i)) == (x1.getIncog(i + 1) / x2.getIncog(i + 1)))
+			return true; 
+		}
+		
+		return false; 
 	}
 	
 }
