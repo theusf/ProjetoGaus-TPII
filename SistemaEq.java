@@ -19,12 +19,27 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 		if(this.qtd >= this.vetEqs.length)
 		throw new Exception("Vetor Cheio!");
 		
-		for(int i = 0; i < this.qtd; i++ )
+	/*	for(int i = 0; i < this.qtd; i++ )
 		{
-			if(this.get)
+			for(int i2 = i + 1; i2 <= this.qtd; i2++ )
+			{
+				if(SistemaEq.EhaMesma(this.vetEqs[i], this.vetEqs[i2]))
+					throw new Exception("Existem equações iguais no Sistema!")
+			}
+		}*/
+		
+		for(int i = 0; i < this.qtd; i++ )
+		{	
+				if(SistemaEq.EhaMesma(this.vetEqs[i], x))   //é statico e privado, por isso é <NOMEDACLASSE>.MÉTODO
+					throw new Exception("Equação já existente!");
+				
+				if(this.vetEqs[i].equals(x))
+					throw new Exception("Equação já existente!");
 		}
 		
-		vetEqs[qtd] = x;
+		
+		
+		this.vetEqs[qtd] = x;
 		this.qtd++;
 	}
 	
@@ -42,7 +57,7 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 		return -1;	//inexistente.
 	}
 	
-	public String ToString()
+	public String toString()
 	{
 		String ret = "";
 		
@@ -53,26 +68,101 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 		return ret;
 	}
 	
-	public getEquacao()
+	public Equacao getEquacao(int pos) throws Exception
 	{
-		for(int i = 0; i < this.vetEqs.lenght; i++)
-		{
+		if(pos > this.qtd+1)
+		throw new Exception("Posição inválida!");
+		
+		if(this.qtd == 0)
+		throw new Exception("Vetor de Equações nulo!");	
 			
-		}
+		return this.vetEqs[pos];
 	}
 	
 	private static boolean EhaMesma(Equacao x1, Equacao x2) throws Exception
 	{
+		System.out.println("Começando a validação");
+		
+		
 		if(x1.getQtdEq() != x2.getQtdEq())
 		throw new Exception("Equações com quantidade de INCOG diferentes!");
+		System.out.println("QTD DE INCOG: " + x1.getQtdEq());
 		
-		for(int i = 0; i < x1.getQtdEq(); i++)
+		
+		
+		for(int i = 0; i < x1.getQtdEq()-2; i++)
 		{
-			if((x1.getIncog(i) / x2.getIncog(i)) == (x1.getIncog(i + 1) / x2.getIncog(i + 1)))
-			return true; 
+			//System.out.println((x1.getIncog(i) + "/" + x2.getIncog(i) + "=" + (x1.getIncog(i) / x2.getIncog(i))));
+			
+			if(!(x1.getIncog(i) == 0 || x2.getIncog(i) == 0))
+			{
+				System.out.println("É ZERO!! pula");
+				if((x1.getIncog(i) / x2.getIncog(i)) == (x1.getIncog(i + 1) / x2.getIncog(i + 1)))
+				{
+					System.out.println((x1.getIncog(i) + "/" + x2.getIncog(i) + "=" + (x1.getIncog(i) / x2.getIncog(i))));
+					return true;
+				}
+			}
 		}
 		
 		return false; 
+	}
+	
+	public String getDiagonal()
+	{
+		String total = "";
+		for (int row = 0; row < this.vetEqs.length; row++)
+		{
+			total += row +":"+ vetEqs[row].getIncog(row) + ", " ;
+		}
+
+
+		return total;
+
+	}
+
+
+	public boolean temZeroNaDiagonal()
+	{
+
+		for (int row = 0; row < this.vetEqs.length; row++)
+		{
+			if  (vetEqs[row].getIncog(row) == 0)
+				return true;
+		}
+
+		return false;
+
+	}
+
+	public void tiraZerosDiagonal()
+	{
+
+		if (this.temZeroNaDiagonal())
+		{
+			
+			Equacao temp = this.vetEqs[0]; // 0
+
+			for(int i=0;i<vetEqs.length-1;i++){ // i = 0 , enquanto i < 2 i++
+			
+				vetEqs[i] = vetEqs[i+1]; // vetEqs[0] = vetEqs[1] ... vetEqs[1] = vetEqs[2] 
+			}
+
+			vetEqs[vetEqs.length-1] = temp;  //-1 porque o ultimo valor é sempre o resutlado da eq e eu não quero apagar meu resultado.........
+
+		}
+
+    } 
+    
+    public Equacao getEqua(int pos)
+    {
+		
+		return this.vetEqs[pos];
+	}
+	
+	public void setEquacao(Equacao x, int pos)
+	{
+		this.vetEqs[pos] = x;
 	}
 	
 }

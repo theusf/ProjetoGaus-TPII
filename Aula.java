@@ -42,12 +42,17 @@ public class Aula
             }
             System.out.println("Sistema:");
 
-            System.out.println(Sistema.toString());
+            //System.out.println(Sistema.toString());
 
-            System.out.println("Valores da diagonal:" + Sistema.getDiagonal());
-            System.out.println("Tem zero na diagonal? :" + Sistema.temZeroNaDiagonal());
-            Sistema.tiraZerosDiagonal();
-           
+            
+            while(Sistema.temZeroNaDiagonal())
+            {
+				
+				//System.out.println("Valores da diagonal:" + Sistema.getDiagonal());
+				System.out.println("Tem zero na diagonal? :" + Sistema.temZeroNaDiagonal());
+				System.out.println(Sistema.toString());
+				Sistema.tiraZerosDiagonal();
+			}
             System.out.println("Sistema sem zero na diagonal:");
 
             System.out.println(Sistema.toString());
@@ -57,6 +62,8 @@ public class Aula
 			testeFODASE.tornaPrimeiroElemUm();
 			System.out.println(Sistema.toString());
 
+			testeFODASE.tornaDemaisElemZero();
+			System.out.println(Sistema);
 
 
 
