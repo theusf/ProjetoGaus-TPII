@@ -10,6 +10,64 @@ public class MetodoGaus {		//aplica o método de Gauss no sistema
  }
 
 
+ public void tornaPrimeiroElemUm(int passo)
+ {	
+	try
+	{
+	Equacao equa = 	Sistema.getEqua(passo);
+	Equacao ret = new Equacao(equa.getQtdEq());
+	double divisor = equa.getIncog(passo);
+		
+	for(int i = 0; i < equa.getQtdEq(); i++)
+	{
+		double valSet = 0;
+		ret.addIncog((equa.getIncog(i) / divisor));
+		
+	}
+	equa = ret;
+	Sistema.setEquacao(ret, passo);  //estamos fazendo so com o primeiro para testa, apenas.
+	
+	}
+	catch(Exception erro)
+	{
+		System.err.println(erro);
+	}	
+
+ }
+ 
+ public void tornaDemaisElemZero(int passo)	
+ {
+	try
+	{
+		Equacao eq1 = Sistema.getEquacao(passo);
+		Equacao eq2 = Sistema.getEquacao(passo+1);
+		//Equacao aux = new Equacao(eq1.getQtdEq());
+		double aux = 0;
+		double valNumeroAmulti = eq2.getIncog(passo);
+		
+		for(int i = 0; i < eq1.getQtdEq(); i++)
+		{
+		     //aux.addIncog();
+		     System.out.println(eq2.getIncog(i) + "+ (" + (eq1.getIncog(i) + "*" + (valNumeroAmulti * -1) + ")"));
+		     aux = eq2.getIncog(i) + (eq1.getIncog(i) * (valNumeroAmulti * -1) );
+		     System.out.println("AUX PORRA: "+ aux);
+		     
+		     eq2.setIncog(aux,i);
+		}
+		
+		
+		
+		
+	}
+	catch(Exception erro)
+	{
+		System.err.println(erro);
+	}
+ }
+
+
+ /* 
+ 
  public void tornaPrimeiroElemUm()
  {	
 	try
@@ -63,7 +121,15 @@ public class MetodoGaus {		//aplica o método de Gauss no sistema
 	{
 		System.err.println(erro);
 	}
- }
+ } */
+
+
+
+
+
+
+
+
 
 }
 

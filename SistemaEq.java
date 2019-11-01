@@ -154,15 +154,20 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 
     } 
     
-    public Equacao getEqua(int pos)
+    public Equacao getEqua(int pos) throws Exception
     {
-		
+		if (pos <= this.vetEqs.length && pos>=0)
 		return this.vetEqs[pos];
+		else
+		throw new Exception("getEqua: Posição fornecida invalida");
 	}
 	
-	public void setEquacao(Equacao x, int pos)
+	public void setEquacao(Equacao x, int pos) throws Exception
 	{
+		if (pos <= this.vetEqs.length && pos>=0)
 		this.vetEqs[pos] = x;
+		else
+		throw new Exception("setEqua: Posição fornecida invalida");
 	}
 	
 }
