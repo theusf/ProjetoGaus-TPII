@@ -46,7 +46,7 @@ public class MetodoGaus {		//aplica o método de Gauss no sistema
 	 */
 	try
 	{
-		Equacao eq1 = Sistema.getEquacao(posicaoDaEquacao-1); 				// 1	0	1/2	  6				
+		Equacao eq1 = Sistema.getEquacao(posicaoDoValorAZerar); 				// 1	0	1/2	  6				
 		Equacao eq2 = Sistema.getEquacao(posicaoDaEquacao);					// 2   3   0    16
 		//Equacao aux = new Equacao(eq1.getQtdEq());
 		double aux = 0;
