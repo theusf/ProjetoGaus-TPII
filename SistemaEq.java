@@ -141,7 +141,7 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 		if (this.temZeroNaDiagonal())
 		{
 			
-			Equacao temp = this.vetEqs[0]; // 0
+			Equacao temp = this.vetEqs[0]; // variavel auxiliar 
 
 			for(int i=0;i<vetEqs.length-1;i++){ // i = 0 , enquanto i < 2 i++
 			

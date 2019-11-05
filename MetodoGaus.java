@@ -75,7 +75,7 @@ public class MetodoGaus {		//aplica o método de Gauss no sistema
  
 	public int temValorDiferenteDeZeroNaColuna(int coluna)  //pos equacao  
 	{
-				int ret = -1;
+			int ret = -1;
 
 		try{
 		
