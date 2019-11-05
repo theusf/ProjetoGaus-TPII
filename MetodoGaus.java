@@ -35,24 +35,31 @@ public class MetodoGaus {		//aplica o método de Gauss no sistema
 
  }
  
- public void tornaDemaisElemZero(int passo)	
+ public void tornaDemaisElemZero(int posicaoDaEquacao /* 1 */, int posicaoDoValorAZerar  /* coluna */)	
  {
+	 
+	 /*
+		1	0	1/2	  6
+		2	3	0	  16
+		0	3	2	  28
+
+	 */
 	try
 	{
-		Equacao eq1 = Sistema.getEquacao(passo);
-		Equacao eq2 = Sistema.getEquacao(passo+1);
+		Equacao eq1 = Sistema.getEquacao(posicaoDaEquacao-1); 				// 1	0	1/2	  6				
+		Equacao eq2 = Sistema.getEquacao(posicaoDaEquacao);					// 2   3   0    16
 		//Equacao aux = new Equacao(eq1.getQtdEq());
 		double aux = 0;
-		double valNumeroAmulti = eq2.getIncog(passo);
+		double valNumeroAmulti = eq2.getIncog(posicaoDoValorAZerar);// 2
 		
 		for(int i = 0; i < eq1.getQtdEq(); i++)
 		{
 		     //aux.addIncog();
 		     System.out.println(eq2.getIncog(i) + "+ (" + (eq1.getIncog(i) + "*" + (valNumeroAmulti * -1) + ")"));
-		     aux = eq2.getIncog(i) + (eq1.getIncog(i) * (valNumeroAmulti * -1) );
+		     aux = eq2.getIncog(i) + (eq1.getIncog(i) * (valNumeroAmulti * -1) );  // aux = 2 + ( 1 * -2 ))
 		     System.out.println("AUX PORRA: "+ aux);
 		     
-		     eq2.setIncog(aux,i);
+		     eq2.setIncog(aux,i);			// 0, 0  ==  0   3  -1     
 		}
 		
 		
@@ -64,6 +71,25 @@ public class MetodoGaus {		//aplica o método de Gauss no sistema
 		System.err.println(erro);
 	}
  }
+ 
+ 
+	public int temValorDiferenteDeZeroNaColuna(int coluna)  //pos equacao  
+	{
+				int ret = -1;
+
+		try{
+		
+		for (int i = 0; i<Sistema.qtd; i++)
+			if ( ((Sistema.getEquacao(i).getIncog(coluna)) != 0 ) && i != coluna)
+				ret = i; //Me retorna a posicao da Equacao que tem valor a ser zerado no vetor de Sistema ;
+	
+
+		}
+		catch (Exception erro)
+		{
+		}
+		return ret;
+	}
 
 
  /* 

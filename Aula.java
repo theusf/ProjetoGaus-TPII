@@ -50,8 +50,8 @@ public class Aula
 				
 				//System.out.println("Valores da diagonal:" + Sistema.getDiagonal());
 				System.out.println("Tem zero na diagonal? :" + Sistema.temZeroNaDiagonal());
-				System.out.println(Sistema.toString());
-				Sistema.tiraZerosDiagonal();
+				System.out.println(Sistema.toString());			//printar sistema 
+				Sistema.tiraZerosDiagonal();					
 			}
             System.out.println("Sistema sem zero na diagonal:");
 
@@ -60,15 +60,41 @@ public class Aula
 			
             MetodoGaus testeFODASE = new MetodoGaus(Sistema);
             
-            
-            for (int i = 0; i< 3; i++)
-            {
+    
+				
+			for (int i = 0; i < qtdEquacoes; i++  )
+			{
+				
 			testeFODASE.tornaPrimeiroElemUm(i);
 			System.out.println(Sistema.toString());
 
-			testeFODASE.tornaDemaisElemZero(i);
-            System.out.println(Sistema);
-            }
+			System.out.println("Posicao da Equacao do Valor diferente de zero na coluna:");
+			System.out.println(testeFODASE.temValorDiferenteDeZeroNaColuna(0));
+
+			System.out.println(Sistema.toString());
+			
+
+			
+				while(testeFODASE.temValorDiferenteDeZeroNaColuna(i) != -1 ) //Enquanto eu tiver valor pra zerar na coluna eu vou ficar zerando
+				{
+				int PosicaoDoEquacaoDoValorQuePrecisaSerZerado = testeFODASE.temValorDiferenteDeZeroNaColuna(i);  //param = coluna, para retornar a linha (equacao)
+				
+				Sistema.getEqua(PosicaoDoEquacaoDoValorQuePrecisaSerZerado).getIncog(i);
+				
+				testeFODASE.tornaDemaisElemZero( PosicaoDoEquacaoDoValorQuePrecisaSerZerado, i );
+				
+				System.out.println(Sistema);
+				}
+			}
+			
+			
+			System.out.println(Sistema);
+			
+
+			//testeFODASE.tornaDemaisElemZero(0);
+           
+            //System.out.println(Sistema);
+            
 
            
 
