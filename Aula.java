@@ -16,11 +16,18 @@ public class Aula
 
             boolean continua = true;
             
-            while (continua)
+            while (continua)  // verificar se tem + de um sistema
             {
-                int qtdEquacoes = Integer.parseInt (arquivo.readLine());
-                if (qtdEquacoes <= 0)
+				int qtdEquacoes = 0;
+				Object linhaLida = arquivo.readLine();
+                if (linhaLida == null)
+                {
+					System.out.println("FIM DOS SISTEMAS!");
                     break;
+				}
+				else
+                qtdEquacoes = Integer.parseInt((String) linhaLida);
+
                 SistemaEq Sistema = new SistemaEq(qtdEquacoes);
 
                 for (int i=0; i<qtdEquacoes; i++)

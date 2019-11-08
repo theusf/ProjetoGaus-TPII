@@ -57,7 +57,7 @@ public class MetodoGaus {		//aplica o método de Gauss no sistema
 		     //aux.addIncog();
 		     System.out.println(eq2.getIncog(i) + "+ (" + (eq1.getIncog(i) + "*" + (valNumeroAmulti * -1) + ")"));
 		     aux = eq2.getIncog(i) + (eq1.getIncog(i) * (valNumeroAmulti * -1) );  // aux = 2 + ( 1 * -2 ))
-		     System.out.println("AUX PORRA: "+ aux);
+		     System.out.println("AUX    : "+ aux);
 		     
 		     eq2.setIncog(aux,i);			// 0, 0  ==  0   3  -1     
 		}

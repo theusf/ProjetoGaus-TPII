@@ -173,12 +173,13 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 	public String mostraResultados()
 	{
 
-		String ret = "Resultados: x={";
+		String ret = "Resultados: S={";
 
-		for (int i = 0; i< this.vetEqs.length; i++)
-			ret += Math.ceil(vetEqs[i].getResultado()) + ","; 
-		
-		ret += "}";
+		for (int i = 0; i< this.vetEqs.length - 1; i++)
+		{
+			ret += Math.ceil(vetEqs[i].getResultado()) + ", ";
+		}
+			ret += Math.ceil(vetEqs[this.vetEqs.length - 1].getResultado()) + "}";
 		
 
 		return ret;
