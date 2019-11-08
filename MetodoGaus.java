@@ -91,6 +91,7 @@ public class MetodoGaus {		//aplica o método de Gauss no sistema
 		return ret;
 	}
 
+	
 
  /* 
  

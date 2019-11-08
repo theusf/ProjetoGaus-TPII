@@ -169,5 +169,21 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 		else
 		throw new Exception("setEqua: Posição fornecida invalida");
 	}
+
+	public String mostraResultados()
+	{
+
+		String ret = "Resultados: x={";
+
+		for (int i = 0; i< this.vetEqs.length; i++)
+			ret += Math.ceil(vetEqs[i].getResultado()) + ","; 
+		
+		ret += "}";
+		
+
+		return ret;
+
+	}
+
 	
 }
