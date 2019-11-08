@@ -32,7 +32,7 @@ public class Aula
 
                 for (int i=0; i<qtdEquacoes; i++)
                 {
-                    System.out.println("Equacao: " + i);
+                   // System.out.println("Equacao: " + i);
 
                     StringTokenizer quebrador = new StringTokenizer (arquivo.readLine());
         
@@ -45,8 +45,8 @@ public class Aula
                     }
 
 
-                    System.out.println (eq.toString());
-                    System.out.println ("Resultado = " + eq.getResultado());
+                   // System.out.println (eq.toString());
+                   // System.out.println ("Resultado = " + eq.getResultado());
 
                     Sistema.insereEqs(eq);
                 }
@@ -59,39 +59,39 @@ public class Aula
                 {
                     contador++;
         
-                    System.out.println("Tem zero na diagonal? :" + Sistema.temZeroNaDiagonal());
-                    System.out.println(Sistema.toString());			//printar sistema 
+                   // System.out.println("Tem zero na diagonal? :" + Sistema.temZeroNaDiagonal());
+                  //  System.out.println(Sistema.toString());			//printar sistema 
                     Sistema.tiraZerosDiagonal();					
                 }
-                System.out.println("Sistema sem zero na diagonal:");
+              //  System.out.println("Sistema sem zero na diagonal:");
 
-                System.out.println(Sistema.toString());
-                System.out.println("Tem zero na diagonal? :" + Sistema.temZeroNaDiagonal());
+               // System.out.println(Sistema.toString());
+               // System.out.println("Tem zero na diagonal? :" + Sistema.temZeroNaDiagonal());
                 
-                MetodoGaus testeFODASE = new MetodoGaus(Sistema);
+                MetodoGaus gauss = new MetodoGaus(Sistema);
                 
         
                     
                 for (int i = 0; i < qtdEquacoes; i++  )
                 {
                     
-                testeFODASE.tornaPrimeiroElemUm(i);
-                System.out.println(Sistema.toString());
+                gauss.tornaPrimeiroElemUm(i);
+                //System.out.println(Sistema.toString());
 
-                System.out.println("Posicao da Equacao do Valor diferente de zero na coluna:");
-                System.out.println(testeFODASE.temValorDiferenteDeZeroNaColuna(0));
+               // System.out.println("Posicao da Equacao do Valor diferente de zero na coluna:");
+               // System.out.println(gauss.temValorDiferenteDeZeroNaColuna(0));
 
-                System.out.println(Sistema.toString());
+               // System.out.println(Sistema.toString());
                 
 
                 
-                    while(testeFODASE.temValorDiferenteDeZeroNaColuna(i) != -1 ) //Enquanto eu tiver valor pra zerar na coluna eu vou ficar zerando
+                    while(gauss.temValorDiferenteDeZeroNaColuna(i) != -1 ) //Enquanto eu tiver valor pra zerar na coluna eu vou ficar zerando
                     {
-                    int PosicaoDoEquacaoDoValorQuePrecisaSerZerado = testeFODASE.temValorDiferenteDeZeroNaColuna(i);  //param = coluna, para retornar a linha (equacao)
+                    int PosicaoDoEquacaoDoValorQuePrecisaSerZerado = gauss.temValorDiferenteDeZeroNaColuna(i);  //param = coluna, para retornar a linha (equacao)
                     
                     Sistema.getEqua(PosicaoDoEquacaoDoValorQuePrecisaSerZerado).getIncog(i);
                     
-                    testeFODASE.tornaDemaisElemZero( PosicaoDoEquacaoDoValorQuePrecisaSerZerado, i );
+                    gauss.tornaDemaisElemZero( PosicaoDoEquacaoDoValorQuePrecisaSerZerado, i );
                     
                     System.out.println(Sistema);
                     }

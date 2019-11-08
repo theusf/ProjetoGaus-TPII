@@ -81,12 +81,12 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 	
 	private static boolean EhaMesma(Equacao x1, Equacao x2) throws Exception
 	{
-		System.out.println("Começando a validação");
+		//System.out.println("Começando a validação");
 		
 		
 		if(x1.getQtdEq() != x2.getQtdEq())
 		throw new Exception("Equações com quantidade de INCOG diferentes!");
-		System.out.println("QTD DE INCOG: " + x1.getQtdEq());
+		//System.out.println("QTD DE INCOG: " + x1.getQtdEq());
 		
 		
 		
@@ -96,10 +96,10 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 			
 			if(!(x1.getIncog(i) == 0 || x2.getIncog(i) == 0))
 			{
-				System.out.println("É ZERO!! pula");
+				//System.out.println("É ZERO!! pula");
 				if((x1.getIncog(i) / x2.getIncog(i)) == (x1.getIncog(i + 1) / x2.getIncog(i + 1)))
 				{
-					System.out.println((x1.getIncog(i) + "/" + x2.getIncog(i) + "=" + (x1.getIncog(i) / x2.getIncog(i))));
+					//System.out.println((x1.getIncog(i) + "/" + x2.getIncog(i) + "=" + (x1.getIncog(i) / x2.getIncog(i))));
 					return true;
 				}
 			}
@@ -177,13 +177,59 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 
 		for (int i = 0; i< this.vetEqs.length - 1; i++)
 		{
-			ret += Math.ceil(vetEqs[i].getResultado()) + ", ";
+			ret += vetEqs[i].getResultado() + ", ";
 		}
-			ret += Math.ceil(vetEqs[this.vetEqs.length - 1].getResultado()) + "}";
+			ret += vetEqs[this.vetEqs.length - 1].getResultado() + "} \n";
 		
 
 		return ret;
 
+	}
+	
+	public int hashCode()
+	{
+		int ret = 6;
+		
+		ret+= 13* + new Integer(this.qtd).hashCode();
+		
+		for(int i = 0; i < this.qtd; i++)
+		ret+= 13* + this.vetEqs[i].hashCode();
+
+		if(ret<0)
+		ret= -ret;
+		
+		return ret;
+		
+	}
+	
+	public SistemaEq (SistemaEq x) throws Exception 
+	{
+		if(x == null)
+		throw new Exception("Modelo nulo");
+		
+		this.qtd = x.qtd;
+		
+		this.vetEqs = new Object[x.vetEqs[i].length];
+		
+		for(int i = 0; i < this.qtd; i++)
+		this.vetEqs[i] = x.vetEqs[i];  //criando objeto this armazenando os valores do outro objeto passado no param 
+		
+	}
+	
+	public Object clone()
+	{
+		SistemaEq ret = null;
+		
+		try
+		{
+			ret = new SistemaEq(this);
+			
+		}
+		catch(Exception erro)
+		{
+			System.err.println(erro);
+		}
+		return ret;
 	}
 
 	
