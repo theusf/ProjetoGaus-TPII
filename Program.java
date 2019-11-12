@@ -26,7 +26,8 @@ public class Program
 				Object linhaLida = arquivo.readLine();
                 if (linhaLida == null)
                 {
-					System.out.println("FIM DOS SISTEMAS!");
+                    System.out.println("FIM DOS SISTEMAS!");
+                    arquivo.close();
                     break;
 				}
 				else
@@ -54,27 +55,24 @@ public class Program
 
                     Sistema.insereEqs(eq);
                 }
-                System.out.println("Sistema:");
-
-                //System.out.println(Sistema.toString());
+                
+                System.out.println("Sistema antes do metodo de Eliminação de Gauss:");
+                System.out.println(Sistema);
 
                 int contador = 0;
-                while(Sistema.temZeroNaDiagonal() && (contador< Sistema.qtd*2))
+                while(Sistema.temZeroNaDiagonal())
                 {
                     contador++;
-        
                    // System.out.println("Tem zero na diagonal? :" + Sistema.temZeroNaDiagonal());
                   //  System.out.println(Sistema.toString());			//printar sistema 
-                    Sistema.tiraZerosDiagonal();					
+                    if (contador<= Sistema.getQtd()*2)
+                    Sistema.tiraZerosDiagonal();	
+                    else
+                    throw new Exception("Impossivel retirar os zeros da diagonal ");
                 }
-              //  System.out.println("Sistema sem zero na diagonal:");
 
-               // System.out.println(Sistema.toString());
-               // System.out.println("Tem zero na diagonal? :" + Sistema.temZeroNaDiagonal());
                 
                 MetodoGaus gauss = new MetodoGaus(Sistema);
-                
-        
                     
                 for (int i = 0; i < qtdEquacoes; i++  )
                 {
@@ -86,9 +84,7 @@ public class Program
                // System.out.println(gauss.temValorDiferenteDeZeroNaColuna(0));
 
                // System.out.println(Sistema.toString());
-                
 
-                
                     while(gauss.temValorDiferenteDeZeroNaColuna(i) != -1 ) //Enquanto eu tiver valor pra zerar na coluna eu vou ficar zerando
                     {
                     int PosicaoDoEquacaoDoValorQuePrecisaSerZerado = gauss.temValorDiferenteDeZeroNaColuna(i);  //param = coluna, para retornar a linha (equacao)
@@ -97,11 +93,12 @@ public class Program
                     
                     gauss.tornaDemaisElemZero( PosicaoDoEquacaoDoValorQuePrecisaSerZerado, i );
                     
-                    System.out.println(Sistema);
+                    //System.out.println(Sistema);
                     }
                     
                 }
                     
+                System.out.println("Metodo de gauss aplicado: ");
                 System.out.println(Sistema);
                 System.out.println(Sistema.mostraResultados());
 
