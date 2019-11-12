@@ -1,7 +1,7 @@
 public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 {
-	Equacao vetEqs[];
-	int qtd = 0;
+	private Equacao vetEqs[];
+	private int qtd = 0;
 	
 	public SistemaEq(int tam) throws Exception 
 	{

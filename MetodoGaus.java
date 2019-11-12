@@ -90,8 +90,40 @@ public class MetodoGaus {		//aplica o método de Gauss no sistema
 		}
 		return ret;
 	}
-
 	
+	public MetodoGaus (MetodoGaus modelo) throws Exception
+	{
+		if(modelo == nulo)
+		throw new Exception("Modelo nulo");
+		
+		this.Sistema = modelo.Sistema.clone();
+
+	}
+	
+	public int hashCode()
+	{
+		int ret = 1;
+		
+		for(int i = 0; i < this.Sistema.length; i++)
+		ret += 13* + this.Sistema[i].hashCode();
+		
+		if(ret<0)
+		ret = -ret;
+	}
+	
+	public Object clone()
+	{
+		MetodoGaus ret = null;
+		try
+		{
+			ret = new MetodoGaus(this);
+		}
+		catch(Exception erro)
+		{
+			System.err.println(erro);
+		}
+	}
+}
 
  /* 
  

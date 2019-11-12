@@ -83,6 +83,36 @@ public boolean equals(Object obj)
 	
 }
 
+public Equacao (Equacao modelo) throws Exception 
+{
+	if(modelo == null)  //se n tiver instância n existe ne obviamente
+	throw new Exception("Modelo Nulo!");
+	
+	if(this.qtd > modelo.qtd || this.qtd < modelo.qtd)
+	throw new Exception;
+	
+	this.qtd = modelo.qtd;
+
+	for(int i = 0; i < modelo.valores.length; i++)
+	this.valores[i] = modelo.valoes[i];
+	
+	
+}
+
+public Object clone()
+	{
+		Equacao ret = null;
+		
+		try
+		{
+			ret = new Equacao(this);
+		}
+		catch(Exception erro)
+		{
+			System.err.println(erro);
+		}
+	}
+
   
 
 
