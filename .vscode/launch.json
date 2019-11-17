@@ -8,9 +8,9 @@
             "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
-            "mainClass": "Program",
-            "console": "externalTerminal",
-            "projectName": "ProjetoGaus-TPII_612ee481"
+            "mainClass": "Aula",
+            "console": "externalTerminal"
+            
         }
     ]
 }
