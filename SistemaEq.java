@@ -1,3 +1,4 @@
+import java.io.*;
 public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 {
 	private Equacao vetEqs[];
@@ -79,14 +80,6 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 		return this.vetEqs[pos];
 	}
 	
-	public int getQtd()
-	{
-		int x = qtd;
-		return x;
-
-	}
-
-
 	private static boolean EhaMesma(Equacao x1, Equacao x2) throws Exception
 	{
 		//System.out.println("Começando a validação");
@@ -217,7 +210,7 @@ public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 		
 		this.qtd = x.qtd;
 		
-		this.vetEqs = x.vetEqs.clone();
+		this.vetEqs = new Object[x.vetEqs[i].length];
 		
 		for(int i = 0; i < this.qtd; i++)
 		this.vetEqs[i] = x.vetEqs[i];  //criando objeto this armazenando os valores do outro objeto passado no param 
