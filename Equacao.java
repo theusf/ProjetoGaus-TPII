@@ -90,12 +90,12 @@ public Equacao (Equacao modelo) throws Exception
 	throw new Exception("Modelo Nulo!");
 	
 	if(this.qtd > modelo.qtd || this.qtd < modelo.qtd)
-	throw new Exception;
+	throw new Exception("Tamanhos divergentes");
 	
 	this.qtd = modelo.qtd;
 
 	for(int i = 0; i < modelo.valores.length; i++)
-	this.valores[i] = modelo.valoes[i];
+	this.valores[i] = modelo.valores[i];
 	
 	
 }
@@ -112,6 +112,8 @@ public Object clone()
 		{
 			System.err.println(erro);
 		}
+
+		return ret;
 	}
 
   
