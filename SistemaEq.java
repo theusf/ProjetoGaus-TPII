@@ -1,3 +1,4 @@
+import java.io.*;
 public class SistemaEq //implements Comparable <SistemaEq>,Cloneable
 {
 	private Equacao vetEqs[];

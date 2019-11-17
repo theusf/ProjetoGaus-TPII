@@ -1,3 +1,4 @@
+import java.io.*;
 public class MetodoGaus {		//aplica o método de Gauss no sistema
 
     private SistemaEq Sistema;
